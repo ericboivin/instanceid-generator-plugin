@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="instanceid-generator-plugin-master:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/instanceid_generator_plugin_master_jar</output-path>
+    <root id="archive" name="instanceid-generator-plugin-master.jar">
+      <element id="module-output" name="instanceid-generator-plugin-master" />
+    </root>
+  </artifact>
+</component>

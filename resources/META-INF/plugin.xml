@@ -1,39 +1,46 @@
-<idea-plugin version="2">
-  <id>com.github.ericboivin.instanceidgenerator</id>
-  <name>Instance ID Generator</name>
-  <version>1.0</version>
-  <vendor>Eric Boivin (@ericboivin)</vendor>
+<idea-plugin>
+    <id>ca.bell.lifery.webcontent.instanceidgenerator</id>
+    <name>Liferay Instance ID Generator unique in a Web Content</name>
+    <version>1.1</version>
+    <vendor>Eric Boivin (@ericboivin)</vendor>
 
-  <description><![CDATA[
-      A universally unique identifier (UUID) generator.<br/>
+    <description><![CDATA[
+      Eric Boivin (@ericboivin)
+      A universally unique identifier (UUID) generator to generate instance-id unique in an XML Document<br/>
       <br/>
-      For example : <em>aomv</em>.<br/>
-      <br>
-      You will find it in the <strong>Generate popup</strong> -> <strong>random 4 letters string</strong>.
+      For example : instance-id="aomv"<br/> will replace the four letter between the quotes to be unique in current XML file.
+      The plugin has 2 modes :
+        - Replace one occurrence (current cursor selection) (One Random 4 letters (cursor selection))
+        - Replace all occurrence of instance-id occurrence with a unique identifer in the current document open.
     ]]></description>
 
-  <change-notes><![CDATA[
-      First version!
+    <change-notes><![CDATA[
+      First version (Eric Boivin)!
+      Updated by shany Palardy : 2017-08-23 to add an action to update all occurences
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="145.0"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145.0"/>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
-  <depends>com.intellij.modules.lang</depends>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
 
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
 
-  <actions>
-    <action id="instanceidgenerator.random" class="myplugins.InstanceIDGenerator" text="Random 4 letters"
-            description="Generate a random 4 letter String">
-      <add-to-group group-id="GenerateGroup" anchor="last"/>
-    </action>
-  </actions>
+    <actions>
+        <action id="instanceidgenerator.random" class="RandomGenerator" text="One Random 4 letters (cursor selection)"
+                description="Generate a random 4 letter String">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+        <action id="entiredoc.instanceidgenerator.random" class="RandomGeneratorInstanceIdDocument" text="Random 4 letters for all instance-id in document"
+                description="Generate a random 4 letter String in each instance-id of the document">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
 
 </idea-plugin>
