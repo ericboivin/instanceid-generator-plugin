@@ -23,8 +23,6 @@
  *  THE SOFTWARE.
  */
 
-package myplugins;
-
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -36,10 +34,11 @@ import com.intellij.openapi.project.Project;
 
 import java.util.Random;
 
-public class InstanceIDGenerator extends AnAction {
+public class RandomGenerator extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
+
         Project project = anActionEvent.getData(CommonDataKeys.PROJECT);
         Editor editor = anActionEvent.getData(CommonDataKeys.EDITOR);
 
